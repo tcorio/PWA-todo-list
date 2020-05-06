@@ -5,7 +5,7 @@ export default class TodoListService {
     this.idbService = new IdbService();
   }
   async getTodos() {
-    if (!document.offline) {
+    if (navigator.onLine) {
       const todos =  await fetch('http://localhost:3000/todos').then(res => res.json());
       this.idbService.setTodos(todos)
       return todos;
