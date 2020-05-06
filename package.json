@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Drillman/PWA-todo-list/issues"
   },
-  "homepage": "https://github.com/Drillman/PWA-todo-list#readme"
+  "homepage": "https://github.com/Drillman/PWA-todo-list#readme",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
 }
