@@ -1,4 +1,5 @@
 import page from 'page';
+import network from './network';
 
 const outlet = document.querySelector('#app .outlet');
 page('/', async () => {
