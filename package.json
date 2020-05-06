@@ -1,0 +1,19 @@
+{
+  "name": "pwa-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drillman/PWA-todo-list.git"
+  },
+  "author": "Lucas Lavander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Drillman/PWA-todo-list/issues"
+  },
+  "homepage": "https://github.com/Drillman/PWA-todo-list#readme"
+}
