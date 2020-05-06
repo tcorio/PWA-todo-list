@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo-list</title>
+  <title>TodoList</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
 <body>
-<script type="module" src="/js/main.js"></script>
+  <section id="app">
+    <header></header>
+    <main class="outlet"></main>
+  </section>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>

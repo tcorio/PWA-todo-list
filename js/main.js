@@ -1,12 +1,20 @@
-fetch('http://localhost:3000/todos', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    id: 1,
-    content: 'This is the first todo',
-    done: true,
-    isSync: false
-  })
-}).then(console.log)
+import page from 'page';
+
+const app = document.querySelector('#app .outlet');
+
+page('/', async () => {
+  const module = await import('./views/Home.js');
+  const Home = module.default;
+
+  Home(app);
+
+  const result = await fetch('http://localhost:3000/todos', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await result.json();
+});
+
+page();
