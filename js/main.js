@@ -1,12 +1,9 @@
-fetch('http://localhost:3000/todos', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    id: 1,
-    content: 'This is the first todo',
-    done: true,
-    isSync: false
-  })
-}).then(console.log)
+import page from 'page';
+
+const outlet = document.querySelector('#app .outlet');
+page('/', async () => {
+  const todoElements = await fetch('http://localhost:3000/todos').then(res => res.json());
+  console.log(todoElements);
+})
+
+page();
