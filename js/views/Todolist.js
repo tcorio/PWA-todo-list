@@ -10,7 +10,7 @@ export default function Todolist(outlet, data) {
       <ul name="todolistElements"></ul>
       <form name="addTodo" class="w-full flex hover:shadow transition-all duration-200 ease-out">
         <input type="text" name="todoContent" class="w-full rounded outline-none p-2 rounded-br-none rounded-tr-none">
-        <button class="bg-blue-300 outline-none rounded px-3 text-xl text-white rounded-tl-none rounded-bl-none hover:bg-blue-400 transition-all duration-200 ease-out">+</button>
+        <button class="bg-blue-300 outline-none rounded px-3 text-xl text-white rounded-tl-none rounded-bl-none hover:shadow hover:bg-blue-400 transition-all duration-200 ease-out">+</button>
       </form>
     </section>
   `;
