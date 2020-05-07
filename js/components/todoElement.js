@@ -14,7 +14,7 @@ export default function TodoElement(outlet, data) {
   const checkbox = constructor.querySelector('input[type=checkbox]');
   checkbox.addEventListener('change', async(e) => {
     const state = e.target.checked;
-    await TodolistService.changeDoneState(data, state).then(console.log)
+    await TodolistService.changeDoneState(data, state)
   })
 
   outlet.appendChild(constructor);

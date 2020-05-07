@@ -37,7 +37,7 @@ class TodoListService {
   }
 
   async changeDoneState(todo, state = true) {
-    await fetch(`http://localhost:3000/todos/${id}`, {
+    await fetch(`http://localhost:3000/todos/${todo.id}`, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ class TodoListService {
         ...todo,
         done: state
       })
-    }).then(res => res.json()).finally(console.log);
+    }).then(res => res.json());
   }
 }
 
