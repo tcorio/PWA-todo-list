@@ -26,9 +26,7 @@ export default function Todolist(outlet, data) {
       async (newTodo) => {
         if(newTodo) {
           input.value = '';
-          elementOutlet.innerHTML = '';
-          const todos = await TodoListService.getTodos();
-          displayTodos(elementOutlet, todos);
+          await refreshTodos(elementOutlet);
         }
     });
   })
@@ -38,8 +36,16 @@ export default function Todolist(outlet, data) {
   return constructor;
 }
 
-function displayTodos(outlet, todos) {
+async function refreshTodos(outlet) {
+  const todos = await TodoListService.getTodos();
+  displayTodos(outlet, todos, true);
+}
+
+function displayTodos(outlet, todos, cleanOutlet = false) {
+  if(cleanOutlet) { outlet.innerHTML = ''}
   for(const element of todos) {
-    TodoElement(outlet, element);
+    const todoElement = TodoElement(outlet, element);
+    todoElement.addEventListener('remove', async (e) => await refreshTodos(outlet))
+
   }
 }

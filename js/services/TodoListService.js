@@ -29,11 +29,6 @@ class TodoListService {
       })
     }).then(res => res.json());
     return addedTodo;
-    // if (navigator.onLine) {
-    //   this.idbService.setTodos(todos)
-    //   return todos;
-    // }
-    // return this.idbService.getTodos();
   }
 
   async changeDoneState(todo, state = true) {
@@ -47,6 +42,19 @@ class TodoListService {
         done: state
       })
     }).then(res => res.json());
+  }
+
+  async removeTodo(id) {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'delete',
+      // headers: {
+      //   'Content-Type': 'application/json'
+      // },
+      // body: JSON.stringify({
+      //   ...todo,
+      //   done: state
+      // })
+    });
   }
 }
 
