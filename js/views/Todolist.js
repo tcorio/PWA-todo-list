@@ -1,4 +1,5 @@
 import TodoElement from '../components/todoElement';
+import TodoListService from '../services/TodoListService';
 
 export default function Todolist(outlet, data) {
   outlet.innerHTML = '';
@@ -9,14 +10,36 @@ export default function Todolist(outlet, data) {
       <ul name="todolistElements"></ul>
       <form name="addTodo" class="w-full flex hover:shadow transition-all duration-200 ease-out">
         <input type="text" name="todoContent" class="w-full rounded outline-none p-2 rounded-br-none rounded-tr-none">
-        <button class="bg-blue-300 outline-none rounded px-3 text-xl text-white rounded-tl-none rounded-bl-none">+</button>
+        <button class="bg-blue-300 outline-none rounded px-3 text-xl text-white rounded-tl-none rounded-bl-none hover:bg-blue-400 transition-all duration-200 ease-out">+</button>
       </form>
     </section>
   `;
-  for(const element of data.todolist.elements) {
-    const elementOutlet = constructor.querySelector('[name=todolistElements]');
-    TodoElement(elementOutlet, element);
-  }
+  const form = constructor.querySelector('[name=addTodo]');
+  const input = form.querySelector('input[name=todoContent]');
+  const elementOutlet = constructor.querySelector('[name=todolistElements]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const todoContent = input.value;
+    if(todoContent === '') { return false; }
+    TodoListService.addTodo(todoContent).then(
+      async (newTodo) => {
+        if(newTodo) {
+          input.value = '';
+          elementOutlet.innerHTML = '';
+          const todos = await TodoListService.getTodos();
+          displayTodos(elementOutlet, todos);
+        }
+    });
+  })
+
+  displayTodos(elementOutlet, data.todolist.elements);
   outlet.appendChild(constructor);
   return constructor;
+}
+
+function displayTodos(outlet, todos) {
+  for(const element of todos) {
+    TodoElement(outlet, element);
+  }
 }
