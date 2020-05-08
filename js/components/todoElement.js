@@ -4,9 +4,9 @@ export default function TodoElement(outlet, data) {
   const constructor = document.createElement('li');
   constructor.classList = "max-w-lg w-full flex justify-between rounded bg-white mb-4 hover:shadow transition-all duration-200 ease-out"
   constructor.innerHTML = `
-    <div class="p-4 border-r border-solid border-gray-300 flex flex-col justify-center">
-      <label for="done" class="hidden"></label>
-      <input type="checkbox" id="done" ${data.done ? 'checked' : ''}>
+    <div class="p-4 border-r border-solid border-gray-300 flex items-center">
+      <input type="checkbox" id="done-${data.id}" name="done" ${data.done ? 'checked' : ''}>
+      <label for="done-${data.id}" class="ml-2">Done</label>
     </div>
     <div class="p-4 flex flex-grow">
       <span>${data.content}</span>

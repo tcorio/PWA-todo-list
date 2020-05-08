@@ -44,7 +44,6 @@ class TodoListService {
 
   async changeDoneState(todo, state = true) {
     todo.done = state;
-    console.log(todo.done);
     if (navigator.onLine) {
       todo.isSync = true;
       await fetch(`http://localhost:3000/todos/${todo.id}`, {
@@ -62,8 +61,12 @@ class TodoListService {
   }
 
   async removeTodo(id) {
-    this.idbService.deleteTodo(id);
-    // await fetch(`http://localhost:3000/todos/${id}`, {method: 'delete'});
+    if(navigator.onLine) {
+      await fetch(`http://localhost:3000/todos/${id}`, {method: 'delete'});
+      await this.idbService.deleteTodo(id);
+      return;
+    }
+    await this.idbService.deleteTodo(id);
   }
 
   // Sync indexedDb todos with server's
