@@ -5,7 +5,8 @@ export default function TodoElement(outlet, data) {
   constructor.classList = "max-w-lg w-full flex justify-between rounded bg-white mb-4 hover:shadow transition-all duration-200 ease-out"
   constructor.innerHTML = `
     <div class="p-4 border-r border-solid border-gray-300 flex flex-col justify-center">
-      <input type="checkbox" ${data.done ? 'checked' : ''}>
+      <label for="done" class="hidden"></label>
+      <input type="checkbox" id="done" ${data.done ? 'checked' : ''}>
     </div>
     <div class="p-4 flex flex-grow">
       <span>${data.content}</span>
