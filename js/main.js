@@ -8,7 +8,7 @@ page('/', async () => {
 
   const todoElements = await TodoListService.getTodos();
   Todolist(outlet, {
-    todolist: {
+    todolist:  {
       name: 'Shopping list',
       elements: todoElements
     }

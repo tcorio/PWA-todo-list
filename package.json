@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "database": "npx json-server --watch ./database/data.json",
-    "serve": "es-dev-server --app-index index.html --node-resolve --watch -p 8080",
+    "serve": "es-dev-server --app-index index.html --node-resolve --watch -p 8086",
     "tailwind": "npx tailwindcss build ./styles/style.css -o output.css"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "tailwindcss": "^1.4.4"
   },
   "devDependencies": {
+    "cypress": "^4.9.0",
     "es-dev-server": "^1.48.1",
     "json-server": "^0.16.1"
   }

@@ -20,7 +20,7 @@ export default function Todolist(outlet, data) {
   const form = constructor.querySelector('[name=addTodo]');
   const input = form.querySelector('input[name=todoContent]');
   const elementOutlet = constructor.querySelector('[name=todolistElements]');
-
+constructor.setAttribute('data-cy','todolist');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const todoContent = input.value;
