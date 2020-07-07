@@ -1,7 +1,6 @@
 import { openDB } from 'idb';
 
 export default class idbService {
-  db = null;
 
   async initDb() {
     this.db = await openDB('todolist', 1, {

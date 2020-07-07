@@ -2,7 +2,6 @@ import IdbService from './idb';
 const generateUUID = () => new Date().getTime().toString(16);
 
 class TodoListService {
-  idbService = null;
   constructor() {
     this.idbService = new IdbService();
     // When user is back online, we sync local changes with server
