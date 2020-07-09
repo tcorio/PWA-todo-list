@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require @babel/polyfill --require @babel/register",
     "database": "npx json-server --watch ./database/data.json",
     "serve": "es-dev-server --app-index index.html --node-resolve --watch -p 8086",
     "tailwind": "npx tailwindcss build ./styles/style.css -o output.css"
@@ -25,12 +25,16 @@
     "tailwindcss": "^1.4.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-spread": "^7.10.4",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.4",
     "chai": "^4.2.0",
     "cypress": "^4.9.0",
     "es-dev-server": "^1.48.1",
     "fake-indexeddb": "^3.1.0",
     "json-server": "^0.16.1",
-    "mocha": "^8.0.1",
-    "nock": "^13.0.2"
+    "mocha": "^8.0.1"
   }
 }

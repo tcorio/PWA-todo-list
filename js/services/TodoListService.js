@@ -6,9 +6,11 @@ class TodoListService {
   constructor() {
     this.idbService = new IdbService();
     // When user is back online, we sync local changes with server
-    window.addEventListener('online', async (e) => {
+    if (window) {
+      window.addEventListener('online', async (e) => {
       await this.syncList();
     })
+    }
   }
   async getTodos() {
     if (navigator.onLine) {

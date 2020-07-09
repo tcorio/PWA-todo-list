@@ -1,7 +1,6 @@
-const openDB = require('idb').openDB;
+import { openDB } from "idb";
 
-class IdbService {
-  db = null;
+export default class IdbService {
 
   async initDb() {
     this.db = await openDB('todolist', 1, {
@@ -46,5 +45,3 @@ class IdbService {
     await this.db.clear('todos');
   }
 }
-
-module.exports = IdbService;

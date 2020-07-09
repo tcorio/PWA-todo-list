@@ -1,7 +1,7 @@
-require("fake-indexeddb/auto");
-const IdbService = require('../js/services/idb');
-const should = require('chai').should();
-const expect = require('chai').expect;
+import "fake-indexeddb/auto";
+import IdbService from '../js/services/idb';
+import { expect } from 'chai';
+import 'chai/register-should';
 
 
 describe('Test the idb service', () => {
