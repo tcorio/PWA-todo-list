@@ -18,4 +18,4 @@ jobs:
     - uses: actions/setup-node@v1
 
     - name: Make run
-      run: npm run test
+      run: npm i & npm run test
