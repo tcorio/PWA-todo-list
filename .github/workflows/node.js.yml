@@ -1,0 +1,21 @@
+name: Mocha CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        fetch-depth: 1
+
+    - uses: actions/setup-node@v1
+
+    - name: Make run
+      run: npm run test
