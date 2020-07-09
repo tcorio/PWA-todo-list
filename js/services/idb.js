@@ -1,6 +1,6 @@
-import { openDB } from 'idb';
+const openDB = require('idb').openDB;
 
-export default class idbService {
+class IdbService {
   db = null;
 
   async initDb() {
@@ -39,7 +39,12 @@ export default class idbService {
 
   async deleteTodo(id) {
     if(!this.db) { await this.initDb() }
-    console.log(await this.db.get('todos', id))
     await this.db.delete('todos', id)
   }
+
+  async clearDb() {
+    await this.db.clear('todos');
+  }
 }
+
+module.exports = IdbService;

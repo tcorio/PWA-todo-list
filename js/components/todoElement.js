@@ -9,7 +9,7 @@ export default function TodoElement(outlet, data) {
       <input type="checkbox" id="done-${data.id}" data-cy="doneCheckbox" name="done" ${data.done ? 'checked' : ''}>
       <label for="done-${data.id}" class="ml-2">Done</label>
     </div>
-    <div class="p-4 flex flex-grow">
+    <div class="p-4 flex flex-grow items-center">
       <span>${data.content}</span>
     </div>
     <button name="deleteElement" data-cy="deleteElement" class="p-4 flex justify-center items-center text-red-600 hover:bg-red-600 hover:text-white transition-color duration-300 rounded-tr rounded-br outline-none">
