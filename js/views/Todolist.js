@@ -11,7 +11,7 @@ export default function Todolist(outlet, data) {
       <form name="addTodo" class="w-full flex flex-col items-center mt-4">
         <label for="todoContent">New Todo</label>
         <div class="w-full flex hover:shadow transition-all duration-200 ease-out m-2">
-          <input type="text" id="todoContent" name="todoContent" class="w-full rounded outline-none p-2 rounded-br-none rounded-tr-none">
+          <input type="text" id="todoContent" data-cy="todoContent" name="todoContent" class="w-full rounded outline-none p-2 rounded-br-none rounded-tr-none">
           <button class="bg-blue-300 outline-none rounded px-3 text-xl text-white rounded-tl-none rounded-bl-none hover:shadow hover:bg-blue-400 transition-all duration-200 ease-out">+</button>
         </div>
       </form>
