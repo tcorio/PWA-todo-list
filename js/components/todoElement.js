@@ -12,7 +12,7 @@ export default function TodoElement(outlet, data) {
     <div class="p-4 flex flex-grow items-center">
       <span>${data.content}</span>
     </div>
-    <button name="deleteElement" data-cy="deleteElement" class="p-4 flex justify-center items-center text-red-600 hover:bg-red-600 hover:text-white transition-color duration-300 rounded-tr rounded-br outline-none">
+    <button name="deleteElement" class="p-4 flex justify-center items-center text-red-600 hover:bg-red-600 hover:text-white transition-color duration-300 rounded-tr rounded-br outline-none">
       <span class="transition-none text-xl font-bold">x</span>
     </button>
     `

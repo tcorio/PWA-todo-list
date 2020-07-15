@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 import page from 'page';
 import TodoListService from './services/TodoListService';
 
